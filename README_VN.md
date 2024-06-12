@@ -21,7 +21,7 @@ project/
 ### 2. Commit and git
 #### 1.1 ADD
 Nếu bạn thêm nhiều file, hãy commit nó riêng
-```
+```asm
 ADD: nội dung thay đổi 
 eg: ADD: main.h, main.p
     ADD: thêm thuật toán merge-sort
