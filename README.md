@@ -10,11 +10,11 @@
 ```asm
 project/
 ├── src/
-│   ├── main.cpp  // Main file
-│   ├── sort/  // Sort algo go in here
-│   │   └── merge_sort.cpp  // merge sort algo file
+│   ├── main.cpp  ; Main file
+│   ├── sort/  ; Sort algo go in here
+│   │   └── merge_sort.cpp  ; merge sort algo file
 │   └── utils/
-│       ├── result.h  // result return from algo
+│       ├── result.h  ; result return from algo
 │       └── ...
 └── ...
 ```

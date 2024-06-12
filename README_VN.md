@@ -10,11 +10,11 @@
 ```asm
 project/
 ├── src/
-│   ├── main.cpp  // Tệp main
-│   ├── sort/  // Thuật toán lưu vào đây
-│   │   └── merge_sort.cpp  // file chứa thuật toán
+│   ├── main.cpp  ; Tệp main
+│   ├── sort/  ; Thuật toán lưu vào đây
+│   │   └── merge_sort.cpp  ; file chứa thuật toán
 │   └── utils/
-│       ├── result.h  // kết quả từ thuật toán
+│       ├── result.h  ; kết quả từ thuật toán
 │       └── ...
 └── ...
 ```
