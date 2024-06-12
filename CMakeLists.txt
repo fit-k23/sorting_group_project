@@ -6,3 +6,5 @@ set(CMAKE_EXE_LINKER_FLAGS "-static")
 
 add_executable(sorting_group_project src/main.cpp
         src/sort/merge_sort.cpp)
+
+set_target_properties(sorting_group_project PROPERTIES RUNTIME_OUTPUT_DIRECTORY ../)
