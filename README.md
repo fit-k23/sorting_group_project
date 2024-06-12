@@ -7,6 +7,17 @@
 ## II. Command Line Interface
 ## III. Contribution Requirements
 ### 1. Project structure
+```asm
+project/
+├── src/
+│   ├── main.cpp  // Main file
+│   ├── sort/  // Sort algo go in here
+│   │   └── merge_sort.cpp  // merge sort algo file
+│   └── utils/
+│       ├── result.h  // result return from algo
+│       └── ...
+└── ...
+```
 ### 2. Commit and git
 #### 1.1 ADD
 If you add new files, add them separately as a commit.

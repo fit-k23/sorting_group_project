@@ -7,6 +7,17 @@
 ## II. Command Line Interface
 ## III. Yêu cầu đóng góp
 ### 1. Cấu trúc dự án
+```asm
+project/
+├── src/
+│   ├── main.cpp  // Tệp main
+│   ├── sort/  // Thuật toán lưu vào đây
+│   │   └── merge_sort.cpp  // file chứa thuật toán
+│   └── utils/
+│       ├── result.h  // kết quả từ thuật toán
+│       └── ...
+└── ...
+```
 ### 2. Commit and git
 #### 1.1 ADD
 Nếu bạn thêm nhiều file, hãy commit nó riêng
