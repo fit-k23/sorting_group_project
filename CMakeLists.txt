@@ -4,4 +4,5 @@ project(sorting_group_project)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_EXE_LINKER_FLAGS "-static")
 
-add_executable(sorting_group_project src/main.cpp)
+add_executable(sorting_group_project src/main.cpp
+        src/sort/merge_sort.cpp)

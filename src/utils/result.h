@@ -5,7 +5,7 @@
 
 #endif //SORTING_GROUP_PROJECT_RESULT_H
 
-struct result{
+struct Result{
 	double time;
 	long long cmps;
 };
