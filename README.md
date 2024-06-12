@@ -7,8 +7,8 @@
 ## II. Command Line Interface
 ## III. Contribution Requirements
 ### 1. Project structure
-> **IMPORTANT**
-> Help
+> [!IMPORTANT]<br>
+> For the project to be unified, all of the following rules are required.
 ```asm
 project/
 ├── src/

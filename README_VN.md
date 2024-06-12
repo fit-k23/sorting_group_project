@@ -7,6 +7,8 @@
 ## II. Command Line Interface
 ## III. Yêu cầu đóng góp
 ### 1. Cấu trúc dự án
+> [!Quan trọng]<br>
+> For the project to be unified, all of the following rules are required.
 ```asm
 project/
 ├── src/
@@ -21,7 +23,7 @@ project/
 ### 2. Commit and git
 #### 1.1 ADD
 Nếu bạn thêm nhiều file, hãy commit nó riêng
-```asm
+```
 ADD: nội dung thay đổi 
 eg: ADD: main.h, main.p
     ADD: thêm thuật toán merge-sort
