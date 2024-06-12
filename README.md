@@ -20,6 +20,12 @@ project/
 │       └── ...
 └── ...
 ```
+#### 1.1 Sort algorithms
+All sorting algorithms must be in a separated file in sort folder, they must be following this prototype
+```c++
+/// Working in Process
+```
+#### 
 ### 2. Commit and git
 #### 1.1 ADD
 If you add new files, add them separately as a commit.

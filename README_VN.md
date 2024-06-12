@@ -7,8 +7,8 @@
 ## II. Command Line Interface
 ## III. Yêu cầu đóng góp
 ### 1. Cấu trúc dự án
-> [!Quan trọng]<br>
-> For the project to be unified, all of the following rules are required.
+> [!IMPORTANT]<br>
+> Để dự án ổn định, những quy tắc sau là bắt buộc.
 ```asm
 project/
 ├── src/
