@@ -2,9 +2,24 @@
 ## I. Setup
 ### 1. Build
 #### 1.1 - CMake
+You could open this project in any IDE that support CMake like CLion (Prefered) or Visual Studio. 
+
+Otherwise, run this following command:
+```asm
+cmake -build .
+```
 #### 1.2 - GCC
+```asm
+gcc -std=c++17 -O2 -o sgp.exe src/main.cpp
+```
+or simply just run the `build.cmd`
 ### 2. Run
+Most of the time, the output executable is at the project source code. You can run it as a command in terminal.<br>
+Rarely, sometime the executable file won't be at the root of the project source code.
 ## II. Command Line Interface
+### 1. Sort
+### 2. Compare
+### 3. Help
 ## III. Contribution Requirements
 ### 1. Project structure
 > [!IMPORTANT]<br>
