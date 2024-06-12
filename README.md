@@ -7,6 +7,8 @@
 ## II. Command Line Interface
 ## III. Contribution Requirements
 ### 1. Project structure
+> [!IMPORTANT]<br>
+> Help
 ```asm
 project/
 ├── src/
@@ -28,7 +30,7 @@ eg: ADD: main.h, main.p
 ```
 
 ### 3. Pull request
-All major changes must be reviewed and approved by [pull request](https://github.com/fit-k23/sorting_group_project/pulls), DO NOT directly changing the `main` branch.<br>
+All major changes should be reviewed and approved by [pull request](https://github.com/fit-k23/sorting_group_project/pulls), DO NOT directly changing the `main` branch.<br>
 This include:
 - Changes to the `main.cpp`, `result.h`, etc. WIP
 - Changes to old algo or new sorting algo implemented.
