@@ -7,7 +7,7 @@
 ## II. Command Line Interface
 ## III. Contribution Requirements
 ### 1. Project structure
-> [!IMPORTANT]<br>
+> **IMPORTANT**
 > Help
 ```asm
 project/
