@@ -73,7 +73,6 @@ git commit -m COMMIT_MESSAGE ; commit messages are those above instructions
 eg: git commit -m "ADD: main.cpp"
 git push REMOTE BRANCH_NAME ; push the commits to branch on local/remote/origin
 eg: git push origin test1
-    git push 
 ```
 
 ### 3. Pull request
@@ -90,3 +89,13 @@ git checkout -b NEW_BRANCH_NAME
 eg: git checkout -b test1  ; to switch between branch do:
 git checkout BRANCH_NAME   ; without the tag -b (tag -b create a new branch if not existed!)
 ```
+- Step 4: If you want to upload the branch to your fork, do the following command
+```asm
+git push origin
+```
+Other solution:
+> [Github Docs > Create & delete branches](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)
+
+#### 3.2 How to create a pull request?
+> [Github Docs > Creating a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request?platform=windows&tool=webui)<br>
+> [Github Docs > Create a pull request from a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
