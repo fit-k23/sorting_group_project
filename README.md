@@ -100,6 +100,23 @@ Other solution:
 Hello world</a>
 </pre></div>
 
+<pre lang="cpp">
+#include <iostream>
+using namespace std;
+
+int main() {
+    return 0;
+}
+</pre>
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    return 0;
+}
+```
 
 <pre lang="asm" hidden="until-found">
 git commmit -m "hello"
