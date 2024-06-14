@@ -3,9 +3,9 @@
 
 #include  "ctime"
 
-#endif //SORTING_GROUP_PROJECT_RESULT_H
-
 struct Result{
-	double time;
-	long long cmps;
+	double time{-1};
+	long long cmps{0};
 };
+
+#endif //SORTING_GROUP_PROJECT_RESULT_H

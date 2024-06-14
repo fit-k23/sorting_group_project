@@ -1,3 +1,7 @@
+#ifndef SORTING_GROUP_PROJECT_DATA_GENERATOR_CPP
+#define SORTING_GROUP_PROJECT_DATA_GENERATOR_CPP
+
+
 #include <iostream>
 #include <fstream>
 #include <cmath>
@@ -13,7 +17,6 @@ void Swap(T &a, T &b) {
 }
 
 //-------------------------------------------------
-
 // This function generates a random array
 void GenerateRandomData(int a[], int n) {
 	srand((unsigned int) time(NULL));
@@ -70,3 +73,5 @@ void GenerateData(int a[], int n, int dataType) {
 			printf("Error: unknown data type!\n");
 	}
 }
+
+#endif //SORTING_GROUP_PROJECT_DATA_GENERATOR_CPP
