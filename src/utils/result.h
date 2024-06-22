@@ -4,7 +4,7 @@
 #include  "ctime"
 
 struct Result{
-	double time{-1};
+	double time{-1.0};
 	long long cmps{0};
 };
 

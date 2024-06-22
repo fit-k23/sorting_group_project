@@ -16,39 +16,31 @@ bool isValidInputNumber(char *s) {
 }
 
 enum InputOrder{
-	UNKNOWN_ORDER = -1,
-	RAND = 0,
-	NSORTED = 1,
-	SORTED = 2,
-	REV = 3
-};
-
-enum class InputOrderC{
-	UNKNOWN = -1,
-	RAND = 0,
-	NSORTED = 1,
-	SORTED = 2,
-	REV = 3
+	ORDER_UNKNOWN = -1,
+	ORDER_RAND = 0,
+	ORDER_SORTED = 1,
+	ORDER_REV = 2,
+	ORDER_NSORTED = 3,
 };
 
 InputOrder getInputOrder(char *s) {
 	if (strcmp(s, "-rand") == 0) {
-		return InputOrder::RAND;
+		return InputOrder::ORDER_RAND;
 	}
 	if (strcmp(s, "-nsorted") == 0) {
-		return InputOrder::NSORTED;
+		return InputOrder::ORDER_NSORTED;
 	}
 	if (strcmp(s, "-sorted") == 0) {
-		return InputOrder::SORTED;
+		return InputOrder::ORDER_SORTED;
 	}
 	if (strcmp(s, "-rev") == 0) {
-		return InputOrder::REV;
+		return InputOrder::ORDER_REV;
 	}
-	return InputOrder::UNKNOWN_ORDER;
+	return InputOrder::ORDER_UNKNOWN;
 }
 
 enum OutputMode{
-	UNKNOWN_OUTPUT_MODE = -1,
+	NONE = -1,
 	TIME = 0,
 	COMP = 1,
 	BOTH = 2,
@@ -64,7 +56,7 @@ OutputMode getOutputMode(char* s) {
 	if (strcmp(s, "-both") == 0) {
 		return OutputMode::BOTH;
 	}
-	return OutputMode::UNKNOWN_OUTPUT_MODE;
+	return OutputMode::NONE;
 }
 
 #endif //SORTING_GROUP_PROJECT_UTILS_H
