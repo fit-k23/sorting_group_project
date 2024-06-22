@@ -95,34 +95,56 @@ git push origin
 ```
 Other solution:
 
-<div class="highlight highlight-html"><pre>
-<a href="https://google.com">
-Hello world</a>
-</pre></div>
+[//]: # (<div class="highlight highlight-html"><pre>)
 
-<pre lang="cpp">
-#include <<b>iostream></b>
-using namespace std;
+[//]: # (<a href="https://google.com">)
 
-int main() {
-    return 0;
-}
-</pre>
+[//]: # (Hello world</a>)
 
-```cpp
-#include <iostream>
-using namespace std;
+[//]: # (</pre></div>)
 
-int main() {
-    return 0;
-}
-```
+[//]: # ()
+[//]: # (<pre lang="cpp">)
 
-<pre lang="asm" hidden="until-found">
-git commmit -m "hello"
-<a href="https://google.com">
-Hello worldaa</a>
-</pre></div>
+[//]: # (#include <<b>iostream></b>)
+
+[//]: # (using namespace std;)
+
+[//]: # ()
+[//]: # (int main&#40;&#41; {)
+
+[//]: # (    return 0;)
+
+[//]: # (})
+
+[//]: # (</pre>)
+
+[//]: # ()
+[//]: # (```cpp)
+
+[//]: # (#include <iostream>)
+
+[//]: # (using namespace std;)
+
+[//]: # ()
+[//]: # (int main&#40;&#41; {)
+
+[//]: # (    return 0;)
+
+[//]: # (})
+
+[//]: # (```)
+
+[//]: # ()
+[//]: # (<pre lang="asm" hidden="until-found">)
+
+[//]: # (git commmit -m "hello")
+
+[//]: # (<a href="https://google.com">)
+
+[//]: # (Hello worldaa</a>)
+
+[//]: # (</pre></div>)
 
 > [Github Docs > Create & delete branches](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)
 #### 3.2 How to create a pull request?
