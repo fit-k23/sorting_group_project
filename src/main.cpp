@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <string>
 #include <vector>
 
 #include "sort/insertion_sort.cpp"
