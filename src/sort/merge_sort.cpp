@@ -2,4 +2,6 @@
 
 #include "../utils/result.h"
 
-Result merge_sort();
+Result mergeSort(int *a, int n) {
+	return {-1, 0};
+}
