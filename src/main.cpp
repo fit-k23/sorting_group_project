@@ -2,6 +2,7 @@
 #include <cstring>
 #include <vector>
 
+#include "sort/insertion_sort.cpp"
 #include "sort/merge_sort.cpp"
 #include "sort/selection_sort.cpp"
 
@@ -12,12 +13,14 @@ using namespace std;
 enum SortingAlgo{
 	UNKNOWN_SORT = -1,
 	HEAP_SORT = 0,
-	MERGE_SORT = 1,
-	SELECTION_SORT = 2
+	INSERTION_SORT = 1,
+	MERGE_SORT = 2,
+	SELECTION_SORT = 3
 };
 
 static vector<string> sortingAlgo = {
 	"heap-sort",
+	"insertion-sort",
 	"merge-sort",
 	"selection-sort",
 	"quick-sort",
@@ -56,7 +59,7 @@ void printHelp() {
 		 << "       sgp -l List all supported sorting algorithms\n";
 }
 
-int* cloneArray(int* a, int n) {
+int* cloneArray(const int* a, int n) {
 	int *clone_a{new int[n]};
 	for (int i = 0; i < n; i++) {
 		clone_a[i] = a[i];
@@ -69,10 +72,15 @@ Result sort(SortingAlgo algo, int *a, int n) {
 	if (algo == UNKNOWN_SORT) {
 		return {-1, 0};
 	}
+	writeFile("input.txt", a, n);
 	int *clone_a = cloneArray(a, n);
 	Result r;
 	switch (algo) {
 		case SortingAlgo::HEAP_SORT:
+			break;
+		case SortingAlgo::INSERTION_SORT:
+			r = insertionSort(clone_a, n);
+			writeFile("output.txt", clone_a, n);
 			break;
 		case SortingAlgo::MERGE_SORT:
 			r = mergeSort(clone_a, n);
@@ -81,17 +89,21 @@ Result sort(SortingAlgo algo, int *a, int n) {
 			r = selectionSort(clone_a, n);
 			writeFile("output.txt", clone_a, n);
 			break;
+		default:
+			break;
 	}
 	delete[] clone_a;
 	return r;
 }
 
-int main(int argc, char **argv) {
-//	cout << "----------------\n";
-//	for (int i = 0; i < argc; i++) {
-//		cout << argv[i] << "\n";
-//	}
+void printAlgoList() {
+	cout << "No)    Name            Tag\n";
+	for (int i = 0; i < algoName.size(); i++) {
+		printf("%d)  %-15s - %s\n", i + 1, algoName[i].c_str(), sortingAlgo[i].c_str());
+	}
+}
 
+int main(int argc, char **argv) {
 	if (argc < 2) {
 		printHelp();
 		return 0;
@@ -101,20 +113,21 @@ int main(int argc, char **argv) {
 
 	if (strcmp(argv[1], "-a") == 0) {
 		cout << "ALGORITHM MODE\n";
-		OutputMode oMode = OutputMode::UNKNOWN_OUTPUT_MODE;
+		OutputMode oMode = OutputMode::NONE;
 		if (argc < 5) {
 			printAlgoHelp();
 			return 0;
 		}
 		SortingAlgo algo = getSortingAlgoFromText(argv[2]);
 		if (algo == SortingAlgo::UNKNOWN_SORT) {
+			// TODO: send help
 			return 0;
 		}
 		cout << "Algorithm: " << algoName[algo] << '\n';
 		if (isValidInputNumber(argv[3])) {
 			InputOrder iOrder = getInputOrder(argv[4]);
 			cout << "Input size: " << argv[3] << '\n';
-			if (iOrder == InputOrder::UNKNOWN_ORDER) {
+			if (iOrder == InputOrder::ORDER_UNKNOWN) {
 				printHelp();
 				return 0;
 			}
@@ -134,7 +147,7 @@ int main(int argc, char **argv) {
 			return 0;
 		}
 		Result r = sort(algo, a1, n);
-		if (oMode == OutputMode::UNKNOWN_OUTPUT_MODE) {
+		if (oMode == OutputMode::NONE) {
 			printHelp();
 			return 0;
 		}
@@ -149,13 +162,16 @@ int main(int argc, char **argv) {
 			cout << r.cmps << " (times)";
 		}
 		cout << '\n';
-	} else if (strcmp(argv[0], "-c") == 0) {
+	} else if (strcmp(argv[1], "-c") == 0) {
 		SortingAlgo algo1 = getSortingAlgoFromText(argv[2]);
 		SortingAlgo algo2 = getSortingAlgoFromText(argv[3]);
 		if (algo1 == UNKNOWN_SORT || algo2 == UNKNOWN_SORT) {
 			printAlgoHelp();
 		}
+	} else if (strcmp(argv[1], "-l") == 0) {
+		printAlgoList();
 	} else {
+		printf("wtf\n");
 		printHelp();
 	}
 
