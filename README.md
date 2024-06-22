@@ -62,7 +62,7 @@ eg: CHANGE: update main() function in main.php
 If there was any grammar issues, commit it with the fixed line with the following struct.
 ```
 TYPO: Description
-eg: fix typo `helIo` -> `hello`
+eg: TYPO: `helIo` -> `hello`
 ```
 #### 1.4 GIT
 To commit a change, you do these following commands
