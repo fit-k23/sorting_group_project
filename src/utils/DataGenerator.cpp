@@ -1,7 +1,6 @@
 #ifndef SORTING_GROUP_PROJECT_DATA_GENERATOR_CPP
 #define SORTING_GROUP_PROJECT_DATA_GENERATOR_CPP
 
-
 #include <iostream>
 #include <fstream>
 #include <cmath>
