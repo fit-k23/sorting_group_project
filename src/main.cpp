@@ -31,7 +31,7 @@ static vector<string> sortingAlgo = {
 
 static vector<string> algoName = {
 	"Heap Sort",
-	"Merge Sort",
+	"Insertion Sort",
 	"Merge Sort",
 	"Selection Sort",
 	"Shell Sort",
@@ -78,6 +78,7 @@ Result sort(SortingAlgo algo, int *a, int n) {
 	}
 	writeFile("input.txt", a, n);
 	int *clone_a = cloneArray(a, n);
+	cout << "Sorting " << algoName[algo] << "\n";
 	Result r;
 	switch (algo) {
 		case SortingAlgo::HEAP_SORT:
@@ -140,7 +141,7 @@ int main(int argc, char **argv) {
 				printHelp();
 				return 0;
 			}
-			cout << "Input order: " << (iOrder == 0 ? "Random" : (iOrder == 1 ? "Near sorted" : (iOrder == 2 ? "Sorted" : "Reverse sorted"))) << '\n';
+			cout << "Input order: " << (iOrder == InputOrder::ORDER_RAND ? "Random" : (iOrder == InputOrder::ORDER_NSORTED ? "Near sorted" : (iOrder == InputOrder::ORDER_SORTED ? "Sorted" : "Reverse sorted"))) << '\n';
 			n = stoi(argv[3]);
 			a1 = new int[n];
 

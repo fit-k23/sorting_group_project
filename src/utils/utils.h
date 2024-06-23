@@ -27,14 +27,14 @@ InputOrder getInputOrder(char *s) {
 	if (strcmp(s, "-rand") == 0) {
 		return InputOrder::ORDER_RAND;
 	}
-	if (strcmp(s, "-nsorted") == 0) {
-		return InputOrder::ORDER_NSORTED;
-	}
 	if (strcmp(s, "-sorted") == 0) {
 		return InputOrder::ORDER_SORTED;
 	}
 	if (strcmp(s, "-rev") == 0) {
 		return InputOrder::ORDER_REV;
+	}
+	if (strcmp(s, "-nsorted") == 0) {
+		return InputOrder::ORDER_NSORTED;
 	}
 	return InputOrder::ORDER_UNKNOWN;
 }
