@@ -6,6 +6,7 @@
 #include "sort/insertion_sort.cpp"
 #include "sort/merge_sort.cpp"
 #include "sort/selection_sort.cpp"
+#include "sort/shell_sort.cpp"
 
 #include "utils/utils.h"
 
@@ -16,7 +17,8 @@ enum SortingAlgo{
 	HEAP_SORT = 0,
 	INSERTION_SORT = 1,
 	MERGE_SORT = 2,
-	SELECTION_SORT = 3
+	SELECTION_SORT = 3,
+	SHELL_SORT = 4,
 };
 
 static vector<string> sortingAlgo = {
@@ -24,14 +26,15 @@ static vector<string> sortingAlgo = {
 	"insertion-sort",
 	"merge-sort",
 	"selection-sort",
-	"quick-sort",
+	"shell-sort"
 };
 
 static vector<string> algoName = {
 	"Heap Sort",
+	"Insertion Sort",
 	"Merge Sort",
 	"Selection Sort",
-	"Quick Sort",
+	"Shell Sort",
 };
 
 SortingAlgo getSortingAlgoFromText(char* s) {
@@ -75,6 +78,7 @@ Result sort(SortingAlgo algo, int *a, int n) {
 	}
 	writeFile("input.txt", a, n);
 	int *clone_a = cloneArray(a, n);
+	cout << "Sorting " << algoName[algo] << "\n";
 	Result r;
 	switch (algo) {
 		case SortingAlgo::HEAP_SORT:
@@ -88,6 +92,10 @@ Result sort(SortingAlgo algo, int *a, int n) {
 			break;
 		case SortingAlgo::SELECTION_SORT:
 			r = selectionSort(clone_a, n);
+			writeFile("output.txt", clone_a, n);
+			break;
+		case SortingAlgo::SHELL_SORT:
+			r = shellSort(clone_a, n);
 			writeFile("output.txt", clone_a, n);
 			break;
 		default:
@@ -112,6 +120,7 @@ int main(int argc, char **argv) {
 	int *a1 = nullptr;
 	int n = 0;
 
+	// no switch? 
 	if (strcmp(argv[1], "-a") == 0) {
 		cout << "ALGORITHM MODE\n";
 		OutputMode oMode = OutputMode::NONE;
@@ -132,7 +141,7 @@ int main(int argc, char **argv) {
 				printHelp();
 				return 0;
 			}
-			cout << "Input order: " << (iOrder == 0 ? "Random" : (iOrder == 1 ? "Near sorted" : (iOrder == 2 ? "Sorted" : "Reverse sorted"))) << '\n';
+			cout << "Input order: " << (iOrder == InputOrder::ORDER_RAND ? "Random" : (iOrder == InputOrder::ORDER_NSORTED ? "Near sorted" : (iOrder == InputOrder::ORDER_SORTED ? "Sorted" : "Reverse sorted"))) << '\n';
 			n = stoi(argv[3]);
 			a1 = new int[n];
 
