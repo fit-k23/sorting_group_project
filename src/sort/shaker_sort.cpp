@@ -34,22 +34,20 @@ Result shakerSort(int *a, int n) {
 	auto start = chrono::high_resolution_clock::now();
 	int left = 0;
 	int right = n - 1;
-
-	bool swapped = true;
-	while (left < right) {
-		swapped = false;
-		for (int i = left; i < right; i++) {
-			if (a[i] > a[i + 1]) {
+	while (++r.cmps && left < right) {
+		bool swapped = false;
+		for (int i = left; ++r.cmps && i < right; i++) {
+			if (++r.cmps && a[i] > a[i + 1]) {
 				Swap(a[i], a[i + 1]);
 				swapped = true;
 			}
 		}
-		if (!swapped) {
+		if (++r.cmps && !swapped) {
 			break;
 		}
 		--right;
-		for (int i = right - 1; i >= left; --i) {
-			if (a[i] > a[i + 1]) {
+		for (int i = right - 1; ++r.cmps && i >= left; --i) {
+			if (++r.cmps && a[i] > a[i + 1]) {
 				Swap(a[i], a[i + 1]);
 			}
 		}
