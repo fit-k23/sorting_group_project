@@ -3,7 +3,8 @@
 Result shakerSort(int *a, int n) {
 	Result r;
 	auto start = chrono::high_resolution_clock::now();
-
+//	int left = 1;
+//	int right = n - 1;
 	bool swapped;
 	do {
 		swapped = false;
@@ -17,7 +18,7 @@ Result shakerSort(int *a, int n) {
 		swapped = false;
 		for (int i = n - 1; ++r.cmps && i > 0; i--) {
 			if (++r.cmps && a[i] < a[i - 1]) {
-				Swap(a[i], a[i + 1]);
+				Swap(a[i], a[i - 1]);
 				swapped = true;
 			}
 		}
