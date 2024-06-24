@@ -6,6 +6,7 @@
 #include "sort/insertion_sort.cpp"
 #include "sort/merge_sort.cpp"
 #include "sort/selection_sort.cpp"
+#include "sort/shaker_sort.cpp"
 #include "sort/shell_sort.cpp"
 
 #include "utils/utils.h"
@@ -18,7 +19,8 @@ enum SortingAlgo{
 	INSERTION_SORT = 1,
 	MERGE_SORT = 2,
 	SELECTION_SORT = 3,
-	SHELL_SORT = 4,
+	SHAKER_SORT = 4,
+	SHELL_SORT = 5,
 };
 
 static vector<string> sortingAlgo = {
@@ -26,6 +28,7 @@ static vector<string> sortingAlgo = {
 	"insertion-sort",
 	"merge-sort",
 	"selection-sort",
+	"shaker-sort",
 	"shell-sort"
 };
 
@@ -34,6 +37,7 @@ static vector<string> algoName = {
 	"Insertion Sort",
 	"Merge Sort",
 	"Selection Sort",
+	"Shaker Sort",
 	"Shell Sort",
 };
 
@@ -92,6 +96,10 @@ Result sort(SortingAlgo algo, int *a, int n) {
 			break;
 		case SortingAlgo::SELECTION_SORT:
 			r = selectionSort(clone_a, n);
+			writeFile("output.txt", clone_a, n);
+			break;
+		case SortingAlgo::SHAKER_SORT:
+			r = shakerSort(clone_a, n);
 			writeFile("output.txt", clone_a, n);
 			break;
 		case SortingAlgo::SHELL_SORT:
