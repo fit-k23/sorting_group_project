@@ -14,26 +14,47 @@ using namespace std;
 
 enum SortingAlgo{
 	UNKNOWN_SORT = -1,
-	HEAP_SORT = 0,
-	INSERTION_SORT = 1,
-	MERGE_SORT = 2,
-	SELECTION_SORT = 3,
-	SHELL_SORT = 4,
+	BINARY_INSERTION_SORT = 0,
+	BUBBLE_SORT = 1,
+	COUNTING_SORT = 2,
+	FLASH_SORT = 3,
+	HEAP_SORT = 4,
+	INSERTION_SORT = 5,
+	MERGE_SORT = 6,
+	QUICK_SORT = 7,
+	RADIX_SORT = 8,
+	SELECTION_SORT = 9,
+	SHAKER_SORT = 10,
+	SHELL_SORT = 11,
 };
 
 static vector<string> sortingAlgo = {
+	"binary-insertion-sort",
+	"bubble-sort",
+	"counting-sort",
+	"flash-sort",
 	"heap-sort",
 	"insertion-sort",
 	"merge-sort",
+	"quick-sort",
+	"radix-sort",
 	"selection-sort",
-	"shell-sort"
+	"shaker-sort",
+	"shell-sort",
 };
 
 static vector<string> algoName = {
+	"Binary Insertion Sort",
+	"Bubble Sort",
+	"Counting Sort",
+	"Flash Sort",
 	"Heap Sort",
 	"Insertion Sort",
 	"Merge Sort",
+	"Quick Sort",
+	"Radix Sort",
 	"Selection Sort",
+	"Shaker Sort",
 	"Shell Sort",
 };
 
@@ -81,6 +102,14 @@ Result sort(SortingAlgo algo, int *a, int n) {
 	cout << "Sorting " << algoName[algo] << "\n";
 	Result r;
 	switch (algo) {
+		case SortingAlgo::BINARY_INSERTION_SORT:
+			break;
+		case SortingAlgo::BUBBLE_SORT:
+			break;
+		case SortingAlgo::COUNTING_SORT:
+			break;
+		case SortingAlgo::FLASH_SORT:
+			break;
 		case SortingAlgo::HEAP_SORT:
 			break;
 		case SortingAlgo::INSERTION_SORT:
@@ -88,11 +117,16 @@ Result sort(SortingAlgo algo, int *a, int n) {
 			writeFile("output.txt", clone_a, n);
 			break;
 		case SortingAlgo::MERGE_SORT:
-			r = mergeSort(clone_a, n);
+			break;
+		case SortingAlgo::QUICK_SORT:
+			break;
+		case SortingAlgo::RADIX_SORT:
 			break;
 		case SortingAlgo::SELECTION_SORT:
 			r = selectionSort(clone_a, n);
 			writeFile("output.txt", clone_a, n);
+			break;
+		case SortingAlgo::SHAKER_SORT:
 			break;
 		case SortingAlgo::SHELL_SORT:
 			r = shellSort(clone_a, n);
