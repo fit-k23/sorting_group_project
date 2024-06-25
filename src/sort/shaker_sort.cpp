@@ -60,7 +60,6 @@ Result shakerSort2(int *a, int n) {
 	}
 
 	chrono::duration<double, std::milli> duration = chrono::high_resolution_clock::now() - start;
-	//(std::chrono::high_resolution_clock::now() - start).count();
 	r.time = duration.count();
 	return r;
 }
@@ -100,7 +99,6 @@ Result shakerSort(int *a, int n) {
 	}
 
 	chrono::duration<double, std::milli> duration = chrono::high_resolution_clock::now() - start;
-	//(std::chrono::high_resolution_clock::now() - start).count();
 	r.time = duration.count();
 	return r;
 }
@@ -140,7 +138,6 @@ Result shakerSort3(int *a, int n) {
 	}
 
 	chrono::duration<double, std::milli> duration = chrono::high_resolution_clock::now() - start;
-	//(std::chrono::high_resolution_clock::now() - start).count();
 	r.time = duration.count();
 	return r;
 }

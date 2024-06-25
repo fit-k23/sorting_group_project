@@ -12,7 +12,6 @@ Result selectionSort(int *a, int n) {
 		if (++r.cmps && cur != i) Swap(a[cur], a[i]);
 	}
 	chrono::duration<double, std::milli> duration = chrono::high_resolution_clock::now() - start;
-	//(std::chrono::high_resolution_clock::now() - start).count();
 	r.time = duration.count();
 	return r;
 }
