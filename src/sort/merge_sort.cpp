@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
 #include "../utils/result.h"
-void Run_mergeSort(Result &r,int a[],int left,int right){
+void Run_mergeSort(Result &r,int *a,int left,int right){
 	if (++r.cmps && left==right) return;
 	if (++r.cmps && (right-left==1)){
-		if (++r.cmps && (a[left]>a[right])) swap(a[lèt],a[right]);
+		if (++r.cmps && (a[left]>a[right])) swap(a[left],a[right]);
 		return;
 	}
 	int mid=(left+right)/2;
