@@ -25,7 +25,7 @@ void Run_mergeSort(Result &r,int *a,int left,int right){
 		}
 	}
 	while (++r.cmps && i<=mid) c[index++] = a[i++];
-	while (++r.cmps && j<=) c[index++] = a[j++];
+	while (++r.cmps && j<=right) c[index++] = a[j++];
 	for (int i=left;++r.cmps && i<=right; ++i)
 		a[i]=c[i-left];
 	
