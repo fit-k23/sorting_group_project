@@ -1,4 +1,4 @@
-#include "../utils/result.h"
+#include "../utils/utils.h"
 void Run_mergeSort(Result &r,int *a,int left,int right){
 	if (++r.cmps && left==right) return;
 	if (++r.cmps && (right-left==1)){
