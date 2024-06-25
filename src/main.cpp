@@ -100,6 +100,21 @@ Result sort(SortingAlgo algo, int *a, int n) {
 			break;
 		case SortingAlgo::SHAKER_SORT:
 			r = shakerSort(clone_a, n);
+			printf("T1");
+			printf("C: %lld  - T: %f\n", r.cmps, r.time);
+			delete[] clone_a;
+
+			clone_a = cloneArray(a, n);
+			r = shakerSort2(clone_a, n);
+			printf("T2");
+			printf("C: %lld  - T: %f\n", r.cmps, r.time);
+			delete[] clone_a;
+
+			clone_a = cloneArray(a, n);
+			r = shakerSort3(clone_a, n);
+			printf("T3");
+			printf("C: %lld  - T: %f\n", r.cmps, r.time);
+
 			writeFile("output.txt", clone_a, n);
 			break;
 		case SortingAlgo::SHELL_SORT:
