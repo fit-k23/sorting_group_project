@@ -3,9 +3,12 @@
 #include <string>
 #include <vector>
 
+#include "sort/heap_sort.cpp"
 #include "sort/insertion_sort.cpp"
 #include "sort/merge_sort.cpp"
+#include "sort/radix_sort.cpp"
 #include "sort/selection_sort.cpp"
+#include "sort/shaker_sort.cpp"
 #include "sort/shell_sort.cpp"
 
 #include "utils/utils.h"
@@ -111,6 +114,8 @@ Result sort(SortingAlgo algo, int *a, int n) {
 		case SortingAlgo::FLASH_SORT:
 			break;
 		case SortingAlgo::HEAP_SORT:
+			r = heapSort(clone_a, n);
+			writeFile("output.txt", clone_a, n);
 			break;
 		case SortingAlgo::INSERTION_SORT:
 			r = insertionSort(clone_a, n);
@@ -121,12 +126,31 @@ Result sort(SortingAlgo algo, int *a, int n) {
 		case SortingAlgo::QUICK_SORT:
 			break;
 		case SortingAlgo::RADIX_SORT:
+			r = radixSort(clone_a, n);
+			writeFile("output.txt", clone_a, n);
 			break;
 		case SortingAlgo::SELECTION_SORT:
 			r = selectionSort(clone_a, n);
 			writeFile("output.txt", clone_a, n);
 			break;
 		case SortingAlgo::SHAKER_SORT:
+			r = shakerSort(clone_a, n);
+			printf("T1");
+			printf("C: %lld  - T: %f\n", r.cmps, r.time);
+			delete[] clone_a;
+
+			clone_a = cloneArray(a, n);
+			r = shakerSort2(clone_a, n);
+			printf("T2");
+			printf("C: %lld  - T: %f\n", r.cmps, r.time);
+			delete[] clone_a;
+
+			clone_a = cloneArray(a, n);
+			r = shakerSort3(clone_a, n);
+			printf("T3");
+			printf("C: %lld  - T: %f\n", r.cmps, r.time);
+
+			writeFile("output.txt", clone_a, n);
 			break;
 		case SortingAlgo::SHELL_SORT:
 			r = shellSort(clone_a, n);
