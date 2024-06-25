@@ -1,5 +1,3 @@
-#include <iostream>
-#include <vector>
 #include "../utils/result.h"
 void Run_mergeSort(Result &r,int *a,int left,int right){
 	if (++r.cmps && left==right) return;
@@ -8,8 +6,8 @@ void Run_mergeSort(Result &r,int *a,int left,int right){
 		return;
 	}
 	int mid=(left+right)/2;
-	Run_mergeSort(a,left,mid);
-	Run_mergeSort(a,mid+1,right);
+	Run_mergeSort(r,a,left,mid);
+	Run_mergeSort(r,a,mid+1,right);
 	
 	// combine the array's parts to merge array in ascending order
 	vector<int> c(right-left+1);
