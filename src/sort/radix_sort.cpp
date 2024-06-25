@@ -19,6 +19,7 @@ void sortByDigit(int *a, int n, int exp10, long long &cmps) {
 
     // array tmp is sorted according to sorted digits (tmp = new a)
     // traverse backwards since position of each digit is being the final one
+    // and due to the sorting of previous last digit
     for (int i = n - 1; ++cmps && i >= 0; --i) {
         int digit = (a[i] / exp10) % 10;
         tmp[--counter[digit]] = a[i];
