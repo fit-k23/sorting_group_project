@@ -100,9 +100,8 @@ Result sort(SortingAlgo algo, int *a, int n) {
 	if (algo == UNKNOWN_SORT) {
 		return {-1, 0};
 	}
-	writeFile("input.txt", a, n);
 	int *clone_a = cloneArray(a, n);
-	cout << "Sorting " << algoName[algo] << "\n";
+	//cout << "Sorting " << algoName[algo] << "\n";
 	Result r;
 	switch (algo) {
 		case SortingAlgo::BINARY_INSERTION_SORT:
@@ -164,13 +163,89 @@ Result sort(SortingAlgo algo, int *a, int n) {
 }
 
 void printAlgoList() {
-	cout << "No)    Name            Tag\n";
+	cout << "Here is the list of all algorithms: \n";
+	cout << "No)    Name                    Tag\n";
 	for (int i = 0; i < algoName.size(); i++) {
-		printf("%d)  %-15s - %s\n", i + 1, algoName[i].c_str(), sortingAlgo[i].c_str());
+		printf("%2d)  %-21s - %s\n", i + 1, algoName[i].c_str(), sortingAlgo[i].c_str());
 	}
 }
 
+void runAlgorithm(int *a, int n, SortingAlgo algo, InputOrder order, OutputMode oMode) {
+	cout << "Input order: ";
+	switch (order) {
+		case InputOrder::ORDER_RAND:
+			cout << "Randomized\n";
+			GenerateData(a, n, 0);
+			break;
+		case InputOrder::ORDER_SORTED:
+			cout << "Sorted\n";
+			GenerateData(a, n, 1);
+			break;
+		case InputOrder::ORDER_REV:
+			cout << "Reverse\n";
+			GenerateData(a, n, 2);
+			break;
+		case InputOrder::ORDER_NSORTED:
+			cout << "Near sorted\n";
+			GenerateData(a, n, 3);
+			break;
+		default:
+			break;
+	}
+	Result r = sort(algo, a, n);
+	cout << "--------------------------\n";
+	cout << "Running time (if required): ";
+	if (oMode == BOTH || oMode == TIME) {
+		cout << r.time << " (ms)";
+	}
+	cout << '\n';
+	cout << "Comparisons (if required): ";
+	if (oMode == BOTH || oMode == COMP) {
+		cout << r.cmps << " (times)";
+	}
+	cout << '\n';
+}
+
+void logGenerateDataInfo(int *a, int n, InputOrder order) {
+	cout << "Input order: ";
+	switch (order) {
+		case InputOrder::ORDER_RAND:
+			cout << "Random\n";
+			GenerateData(a, n, 0);
+			break;
+		case InputOrder::ORDER_SORTED:
+			cout << "Sorted\n";
+			GenerateData(a, n, 1);
+			break;
+		case InputOrder::ORDER_REV:
+			cout << "Reverse sorted\n";
+			GenerateData(a, n, 2);
+			break;
+		case InputOrder::ORDER_NSORTED:
+			cout << "Near sorted\n";
+			GenerateData(a, n, 3);
+			break;
+		default:
+			break;
+	}
+}
+
+void logOutputInfo(Result r, OutputMode oMode) {
+	cout << "--------------------------\n";
+	cout << "Running time (if required): ";
+	if (oMode == BOTH || oMode == TIME) {
+		cout << r.time << " (ms)";
+	}
+	cout << '\n';
+	cout << "Comparisons (if required): ";
+	if (oMode == BOTH || oMode == COMP) {
+		cout << r.cmps << " (times)";
+	}
+	cout << '\n';
+}
+
 int main(int argc, char **argv) {
+	printf("%d\n", argc);
 	if (argc < 2) {
 		printHelp();
 		return 0;
@@ -178,7 +253,7 @@ int main(int argc, char **argv) {
 	int *a1 = nullptr;
 	int n = 0;
 
-	// no switch? 
+	// no switch?
 	if (strcmp(argv[1], "-a") == 0) {
 		cout << "ALGORITHM MODE\n";
 		OutputMode oMode = OutputMode::NONE;
@@ -191,21 +266,47 @@ int main(int argc, char **argv) {
 			// TODO: send help
 			return 0;
 		}
+		Result r;
 		cout << "Algorithm: " << algoName[algo] << '\n';
-		if (isValidInputNumber(argv[3])) {
-			InputOrder iOrder = getInputOrder(argv[4]);
+		if (isValidInputNumber(argv[3])) { // command 1
 			cout << "Input size: " << argv[3] << '\n';
+			n = stoi(argv[3]);
+			a1 = new int[n];
+			if (argc == 5) { // command 3
+				oMode = getOutputMode(argv[4]);
+				cout << '\n';
+				logGenerateDataInfo(a1, n, ORDER_RAND);
+				writeFile("input_1.txt", a1, n);
+				r = sort(algo, a1, n);
+				logOutputInfo(r, oMode);
+				cout << '\n';
+				logGenerateDataInfo(a1, n, ORDER_SORTED);
+				writeFile("input_2.txt", a1, n);
+				r = sort(algo, a1, n);
+				logOutputInfo(r, oMode);
+				cout << '\n';
+				logGenerateDataInfo(a1, n, ORDER_REV);
+				writeFile("input_3.txt", a1, n);
+				r = sort(algo, a1, n);
+				logOutputInfo(r, oMode);
+				cout << '\n';
+				logGenerateDataInfo(a1, n, ORDER_NSORTED);
+				writeFile("input_4.txt", a1, n);
+				r = sort(algo, a1, n);
+				logOutputInfo(r, oMode);
+				delete[] a1;
+				return 0;
+			}
+			InputOrder iOrder = getInputOrder(argv[4]);
+
 			if (iOrder == InputOrder::ORDER_UNKNOWN) {
 				printHelp();
 				return 0;
 			}
-			cout << "Input order: " << (iOrder == InputOrder::ORDER_RAND ? "Random" : (iOrder == InputOrder::ORDER_NSORTED ? "Near sorted" : (iOrder == InputOrder::ORDER_SORTED ? "Sorted" : "Reverse sorted"))) << '\n';
-			n = stoi(argv[3]);
-			a1 = new int[n];
-
-			GenerateData(a1, n, iOrder);
+			logGenerateDataInfo(a1, n, iOrder);
+			writeFile("input.txt", a1, n);
 			oMode = getOutputMode(argv[5]);
-		} else if (fileExist(argv[3])) {
+		} else if (fileExist(argv[3])) { // command 2
 			a1 = readFile(argv[3], n);
 			cout << "Input file: " << argv[3] << "\n";
 			cout << "Input size: " << n << "\n";
@@ -214,32 +315,22 @@ int main(int argc, char **argv) {
 			printHelp();
 			return 0;
 		}
-		Result r = sort(algo, a1, n);
+		r = sort(algo, a1, n);
 		if (oMode == OutputMode::NONE) {
 			printHelp();
 			return 0;
 		}
-		cout << "--------------------------\n";
-		cout << "Running time (if required): ";
-		if (oMode == BOTH || oMode == TIME) {
-			cout << r.time << " (ms)";
-		}
-		cout << '\n';
-		cout << "Comparisons (if required): ";
-		if (oMode == BOTH || oMode == COMP) {
-			cout << r.cmps << " (times)";
-		}
-		cout << '\n';
-	} else if (strcmp(argv[1], "-c") == 0) {
+		logOutputInfo(r, oMode);
+	} else if (strcmp(argv[1], "-c") == 0) { // command 4, 5
 		SortingAlgo algo1 = getSortingAlgoFromText(argv[2]);
 		SortingAlgo algo2 = getSortingAlgoFromText(argv[3]);
 		if (algo1 == UNKNOWN_SORT || algo2 == UNKNOWN_SORT) {
 			printAlgoHelp();
 		}
-	} else if (strcmp(argv[1], "-l") == 0) {
+
+	} else if (strcmp(argv[1], "-l") == 0) { // extra command for display all algorithms
 		printAlgoList();
 	} else {
-		printf("wtf\n");
 		printHelp();
 	}
 
