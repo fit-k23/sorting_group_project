@@ -8,6 +8,61 @@
 #include "file.h"
 #include "result.h"
 
+enum SortingAlgo{
+	UNKNOWN_SORT = -1,
+	BINARY_INSERTION_SORT = 0,
+	BUBBLE_SORT = 1,
+	COUNTING_SORT = 2,
+	FLASH_SORT = 3,
+	HEAP_SORT = 4,
+	INSERTION_SORT = 5,
+	MERGE_SORT = 6,
+	QUICK_SORT = 7,
+	RADIX_SORT = 8,
+	SELECTION_SORT = 9,
+	SHAKER_SORT = 10,
+	SHELL_SORT = 11,
+};
+
+static vector<string> sortingAlgo = {
+	"binary-insertion-sort",
+	"bubble-sort",
+	"counting-sort",
+	"flash-sort",
+	"heap-sort",
+	"insertion-sort",
+	"merge-sort",
+	"quick-sort",
+	"radix-sort",
+	"selection-sort",
+	"shaker-sort",
+	"shell-sort",
+};
+
+static vector<string> algoName = {
+	"Binary Insertion Sort",
+	"Bubble Sort",
+	"Counting Sort",
+	"Flash Sort",
+	"Heap Sort",
+	"Insertion Sort",
+	"Merge Sort",
+	"Quick Sort",
+	"Radix Sort",
+	"Selection Sort",
+	"Shaker Sort",
+	"Shell Sort",
+};
+
+SortingAlgo getSortingAlgoFromText(char* s) {
+	for (int i = 0; i < sortingAlgo.size(); i++) {
+		if (strcmp(s, sortingAlgo[i].c_str()) == 0) {
+			return (SortingAlgo) i;
+		}
+	}
+	return SortingAlgo::UNKNOWN_SORT;
+}
+
 bool isValidInputNumber(char *s) {
 	for (int i = 0; s[i]; s++)
 		if (s[i] > '9' || s[i] < '0')
