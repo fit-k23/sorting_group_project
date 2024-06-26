@@ -301,25 +301,25 @@ int main(int argc, char **argv) {
 			}
 			GenerateData(a1, n, iOrder);
 			writeFile("input.txt", a1, n);
-
-			// run 2 algorithms in different threads to save time! magik :D
-			thread t1(refSort, algo1, a1, n, &r1, nullptr);
-			thread t2(refSort, algo2, a1, n, &r2, nullptr);
-			t1.join();
-			t2.join();
-
-			cout << "--------------------------------------------------------------\n";
-			printf("Running time: %18f | %-18f  (ms)\n", r1.time, r2.time);
-			printf("Comparisons:  %18lld | %-18lld  (times)\n", r1.cmps, r2.cmps);
-		} else if (fileExist(argv[3])) { // command 4
-			a1 = readFile(argv[3], n);
-			cout << "Input file: " << argv[3] << "\n";
+		} else if (fileExist(argv[4])) { // command 4
+			a1 = readFile(argv[4], n);
+			cout << "Input file: " << argv[4] << "\n";
 			cout << "Input size: " << n << "\n";
+			a1 = readFile(argv[4], n);
 		} else { // send help
 			printHelp();
 			return 0;
 		}
-//		thread ag1(sort(algo1))
+
+		// run 2 algorithms in different threads to save time! magik :D
+		thread t1(refSort, algo1, a1, n, &r1, nullptr);
+		thread t2(refSort, algo2, a1, n, &r2, nullptr);
+		t1.join();
+		t2.join();
+
+		cout << "--------------------------------------------------------------\n";
+		printf("Running time: %18f | %-18f  (ms)\n", r1.time, r2.time);
+		printf("Comparisons:  %18lld | %-18lld  (times)\n", r1.cmps, r2.cmps);
 	} else if (strcmp(argv[1], "-l") == 0) { // extra command for display all algorithms
 		printAlgoList();
 	} else {
