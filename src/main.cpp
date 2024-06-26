@@ -9,66 +9,11 @@
 
 using namespace std;
 
-enum SortingAlgo{
-	UNKNOWN_SORT = -1,
-	BINARY_INSERTION_SORT = 0,
-	BUBBLE_SORT = 1,
-	COUNTING_SORT = 2,
-	FLASH_SORT = 3,
-	HEAP_SORT = 4,
-	INSERTION_SORT = 5,
-	MERGE_SORT = 6,
-	QUICK_SORT = 7,
-	RADIX_SORT = 8,
-	SELECTION_SORT = 9,
-	SHAKER_SORT = 10,
-	SHELL_SORT = 11,
-};
+#define COMMAND_TEST
 
-static vector<string> sortingAlgo = {
-	"binary-insertion-sort",
-	"bubble-sort",
-	"counting-sort",
-	"flash-sort",
-	"heap-sort",
-	"insertion-sort",
-	"merge-sort",
-	"quick-sort",
-	"radix-sort",
-	"selection-sort",
-	"shaker-sort",
-	"shell-sort",
-};
-
-static vector<string> algoName = {
-	"Binary Insertion Sort",
-	"Bubble Sort",
-	"Counting Sort",
-	"Flash Sort",
-	"Heap Sort",
-	"Insertion Sort",
-	"Merge Sort",
-	"Quick Sort",
-	"Radix Sort",
-	"Selection Sort",
-	"Shaker Sort",
-	"Shell Sort",
-};
-
-SortingAlgo getSortingAlgoFromText(char* s) {
-	for (int i = 0; i < sortingAlgo.size(); i++) {
-		if (strcmp(s, sortingAlgo[i].c_str()) == 0) {
-			return (SortingAlgo) i;
-		}
-	}
-	return SortingAlgo::UNKNOWN_SORT;
-}
-
-void printAlgoHelp() {
-	for (const auto & i : sortingAlgo) {
-		cout << i << "\n";
-	}
-}
+#ifdef COMMAND_TEST
+#include "test/test.cpp"
+#endif
 
 void printHelp() {
 	cout << "SGP is a tool for measuring time and comparisons of sorting algorithms\n\n"
@@ -133,14 +78,6 @@ Result sort(SortingAlgo algo, int *a, int n, const char *outputFile = nullptr) {
 			break;
 		case SortingAlgo::SHAKER_SORT:
 			r = shakerSort(clone_a, n);
-//			printf("T1");
-//			printf("C: %lld  - T: %f\n", r.cmps, r.time);
-			delete[] clone_a;
-
-			clone_a = cloneArray(a, n);
-			r = shakerSort3(clone_a, n);
-//			printf("T3");
-//			printf("C: %lld  - T: %f\n", r.cmps, r.time);
 			break;
 		case SortingAlgo::SHELL_SORT:
 			r = shellSort(clone_a, n);
@@ -219,17 +156,19 @@ int main(int argc, char **argv) {
 
 	// no switch?
 	if (strcmp(argv[1], "-a") == 0) {
-		cout << "ALGORITHM MODE\n";
 		OutputMode oMode;
 		if (argc < 5) {
-			printAlgoHelp();
+			printf("Command required at least 5 parameters, %d given!\n", argc);
+			printHelp();
 			return 0;
 		}
 		SortingAlgo algo = getSortingAlgoFromText(argv[2]);
 		if (algo == SortingAlgo::UNKNOWN_SORT) {
-			// TODO: send help
+			printf("Unknown algorithm (%s)\n", argv[2]);
+			printAlgoList();
 			return 0;
 		}
+		cout << "ALGORITHM MODE\n";
 		Result r;
 		cout << "Algorithm: " << algoName[algo] << '\n';
 		if (isValidInputNumber(argv[3])) { // command 1
@@ -286,7 +225,7 @@ int main(int argc, char **argv) {
 		Result r1;
 		Result r2;
 		if (algo1 == UNKNOWN_SORT || algo2 == UNKNOWN_SORT) {
-			printAlgoHelp();
+			printHelp();
 		}
 		cout << "COMPARE MODE\n";
 		printf("Algorithm: %21s | %-21s\n", algoName[algo1].c_str(), algoName[algo2].c_str());
@@ -322,6 +261,10 @@ int main(int argc, char **argv) {
 		printf("Comparisons:  %18lld | %-18lld  (times)\n", r1.cmps, r2.cmps);
 	} else if (strcmp(argv[1], "-l") == 0) { // extra command for display all algorithms
 		printAlgoList();
+#ifdef COMMAND_TEST
+	} else if (strcmp(argv[1], "-l") == 0) {
+
+#endif
 	} else {
 		printHelp();
 	}
