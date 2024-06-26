@@ -11,7 +11,7 @@ bool fileExist(const char *fileName) {
 	return filesystem::exists(fileName);
 }
 
-int* readFile(char* fileName, int &n) {
+int* readFile(const char *fileName, int &n) {
 	ifstream file(fileName);
 	if (!file.is_open()) return nullptr;
 
@@ -25,7 +25,7 @@ int* readFile(char* fileName, int &n) {
 }
 
 #include <vector>
-vector<int> readFile2Vector(char* fileName, int &n) {
+vector<int> readFile2Vector(const char *fileName, int &n) {
 	ifstream file(fileName);
 	if (!file.is_open()) {
 		return {};
@@ -40,7 +40,7 @@ vector<int> readFile2Vector(char* fileName, int &n) {
 	return a;
 }
 
-void writeFile(char* fileName, int* a, int n) {
+void writeFile(const char *fileName, int *a, int n) {
 	ofstream file(fileName);
 	if (!file.is_open()) {
 		return;
