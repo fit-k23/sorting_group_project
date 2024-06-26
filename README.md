@@ -31,6 +31,9 @@ Rarely, sometime the executable file won't be at the root of the project source 
 ![getOutputMode.svg](asset/dark/getOutputMode.svg)
 ![getOutputMode.svg](asset/light/getOutputMode.svg)
 
+![compare_mode.svg](asset/dark/compare_mode.svg)
+![compare_mode.svg](asset/light/compare_mode.svg)
+
 ### 2. Compare
 ### 3. Help
 ## III. Contribution Requirements
