@@ -19,6 +19,18 @@ Most of the time, the output executable is at the project source code. You can r
 Rarely, sometime the executable file won't be at the root of the project source code.
 ## II. Command Line Interface
 ### 1. Sort
+
+#### TESTING - Dark/Light
+
+![getAlgoFromName.svg](asset/dark/getAlgoFromName.svg)
+![getAlgoFromName.svg](asset/light/getAlgoFromName.svg)
+
+![getInputOrder.svg](asset/dark/getInputOrder.svg)
+![getInputOrder.svg](asset/light/getInputOrder.svg)
+
+![getOutputMode.svg](asset/dark/getOutputMode.svg)
+![getOutputMode.svg](asset/light/getOutputMode.svg)
+
 ### 2. Compare
 ### 3. Help
 ## III. Contribution Requirements
