@@ -8,7 +8,7 @@ void sortByDigit(int *a, int n, int exp10, long long &cmps) {
     // x / 10^i equates to getting rid of (i - 1) last digits of x
     // x % 10 equates to getting the last digit of x
 
-    // count occurences of current last digits
+    // count occurrence of current last digits
     for (int i = 0; ++cmps && i < n; ++i) {
         int digit = (a[i] / exp10) % 10;
         ++counter[digit];
