@@ -30,39 +30,6 @@
 //}
 
 /// Ref: https://en.wikipedia.org/wiki/Cocktail_shaker_sort
-Result shakerSort2(int *a, int n) {
-	Result r;
-	auto start = chrono::high_resolution_clock::now();
-	int left = 0;
-	int right = n - 1;
-	while (++r.cmps && left < right) {
-		// reset swapped flag
-		bool swapped = false;
-		// loop from left to right then compare like normal bubble sort
-		for (int i = left; ++r.cmps && i < right; i++) {
-			if (++r.cmps && a[i] > a[i + 1]) {
-				Swap(a[i], a[i + 1]);
-				swapped = true;
-			}
-		}
-		// if no swap was made, the array is sorted!
-		if (++r.cmps && !swapped) {
-			break;
-		}
-		--right; // minus the right edge by 1 as right is at its correct spot
-		// same as before but in reverse
-		for (int i = right - 1; ++r.cmps && i >= left; --i) {
-			if (++r.cmps && a[i] > a[i + 1]) {
-				Swap(a[i], a[i + 1]);
-			}
-		}
-		++left; // add the left edge by 1 as left is at its correct spot
-	}
-
-	chrono::duration<double, std::milli> duration = chrono::high_resolution_clock::now() - start;
-	r.time = duration.count();
-	return r;
-}
 
 Result shakerSort(int *a, int n) {
 	Result r;
