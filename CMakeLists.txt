@@ -4,6 +4,13 @@ project(sorting_group_project)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_EXE_LINKER_FLAGS "-static")
 
+file(REMOVE "src/sort.h")
+file(GLOB sort_src "src/sort/*.cpp")
+foreach(sortAlgo ${sort_src})
+    get_filename_component(fileName ${sortAlgo} NAME)
+    file(APPEND "src/sort.h" "#include \"sort/${fileName}\"\n")
+endforeach(sortAlgo ${sort_src})
+
 add_executable(${PROJECT_NAME} src/main.cpp)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "sgp")

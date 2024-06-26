@@ -2,16 +2,9 @@
 #include <cstring>
 #include <string>
 #include <vector>
-
-#include "sort/heap_sort.cpp"
-#include "sort/insertion_sort.cpp"
-#include "sort/merge_sort.cpp"
-#include "sort/radix_sort.cpp"
-#include "sort/selection_sort.cpp"
-#include "sort/shaker_sort.cpp"
-#include "sort/shell_sort.cpp"
-
 #include "utils/utils.h"
+
+#include "sort.h"
 
 using namespace std;
 
