@@ -5,7 +5,7 @@ void heapRebuild(int *a, int pos, int n, long long &cmps) {
     bool isHeap = false;
     while ((cmps += 2) && (2 * pos + 1 < n && !isHeap)) {
         int j = 2 * pos + 1;
-        if ((cmps += 2) && (j + 1 < n && a[j + 1] > a[j])) ++j;
+        if ((++cmps && j + 1 < n) && (++cmps && a[j + 1] > a[j])) ++j;
 
         if (++cmps && a[pos] >= a[j]) isHeap = true;
         else {
