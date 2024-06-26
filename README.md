@@ -6,7 +6,8 @@ You could open this project in any IDE that support CMake like CLion (Prefered) 
 
 Otherwise, run this following command:
 ```asm
-cmake -build .
+cmake .
+cmake --build .
 ```
 #### 1.2 - GCC
 ```asm
