@@ -171,7 +171,7 @@ int main(int argc, char **argv) {
 		cout << "ALGORITHM MODE\n";
 		Result r;
 		cout << "Algorithm: " << algoName[algo] << '\n';
-		if (isValidInputNumber(argv[3])) { // command 1
+		if (isValidInputNumber(argv[3])) { // command 2 or command 3
 			cout << "Input size: " << argv[3] << '\n';
 			n = stoi(argv[3]);
 			a1 = new int[n];
@@ -196,6 +196,7 @@ int main(int argc, char **argv) {
 				delete[] a1;
 				return 0;
 			}
+			// command 2
 			InputOrder iOrder = getInputOrder(argv[4]);
 
 			if (iOrder == InputOrder::ORDER_UNKNOWN) {
@@ -204,7 +205,7 @@ int main(int argc, char **argv) {
 			}
 			logGenerateDataInfo(a1, n, iOrder, "input.txt");
 			oMode = getOutputMode(argv[5]);
-		} else if (fileExist(argv[3])) { // command 2
+		} else if (fileExist(argv[3])) { // command 1
 			a1 = readFile(argv[3], n);
 			cout << "Input file: " << argv[3] << "\n";
 			cout << "Input size: " << n << "\n";
