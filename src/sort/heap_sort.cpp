@@ -3,7 +3,7 @@
 // heap sort
 void heapRebuild(int *a, int pos, int n, long long &cmps) {
     bool isHeap = false;
-    while ((cmps += 2) && (2 * pos + 1 < n && !isHeap)) {
+    while ((++cmps && 2 * pos + 1 < n) && (++cmps && !isHeap)) {
         int j = 2 * pos + 1;
         if ((++cmps && j + 1 < n) && (++cmps && a[j + 1] > a[j])) ++j;
 
