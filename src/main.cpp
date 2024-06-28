@@ -9,7 +9,7 @@
 
 using namespace std;
 
-#define COMMAND_TEST
+//#define COMMAND_TEST
 
 #ifdef COMMAND_TEST
 #include "test/test.cpp"
