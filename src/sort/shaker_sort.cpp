@@ -39,7 +39,7 @@ Result shakerSort(int *a, int n) {
 	int lastSwap = 0;
 	while (++r.cmps && left < right) {
 		// loop from left to right then compare like normal bubble sort
-		for (int i = left; ++r.cmps && i < right; i++) {
+		for (int i = left; ++r.cmps && i < right; ++i) {
 			if (++r.cmps && a[i] > a[i + 1]) {
 				Swap(a[i], a[i + 1]);
 				lastSwap = i;

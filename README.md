@@ -22,17 +22,20 @@ Rarely, sometime the executable file won't be at the root of the project source 
 
 #### TESTING - Dark/Light
 
-![getAlgoFromName.svg](asset/dark/getAlgoFromName.svg)
-![getAlgoFromName.svg](asset/light/getAlgoFromName.svg)
+![compare_mode.svg](asset/command/compare_mode.svg)
+![getAlgoFromName.svg](asset/command/getAlgoFromName.svg)
+![getInputOrder.svg](asset/command/getInputOrder.svg)
+![getOutputMode.svg](asset/command/getOutputMode.svg)
 
-![getInputOrder.svg](asset/dark/getInputOrder.svg)
-![getInputOrder.svg](asset/light/getInputOrder.svg)
+![insertion_sort.svg](asset/sort/insertion_sort.svg)
 
-![getOutputMode.svg](asset/dark/getOutputMode.svg)
-![getOutputMode.svg](asset/light/getOutputMode.svg)
 
-![compare_mode.svg](asset/dark/compare_mode.svg)
-![compare_mode.svg](asset/light/compare_mode.svg)
+![shaker_sort.svg](asset/sort/shaker_sort.svg)
+![shaker_sort.svg](asset/sort/shaker_sort_2.svg)
+![shaker_sort.svg](asset/sort/shaker_sort_3.svg)
+
+
+![shell_sort.svg](asset/sort/shell_sort.svg)
 
 ### 2. Compare
 ### 3. Help

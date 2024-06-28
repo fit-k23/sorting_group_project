@@ -1,0 +1,152 @@
+ALGORITHM MODE
+Algorithm: Insertion Sort
+Input size: 10000
+
+Input order: Random
+--------------------------
+Running time (if required): 80.8735 (ms)
+Comparisons (if required): 50470340 (times)
+
+Input order: Sorted
+--------------------------
+Running time (if required): 0.0519 (ms)
+Comparisons (if required): 29998 (times)
+
+Input order: Reverse sorted
+--------------------------
+Running time (if required): 150.778 (ms)
+Comparisons (if required): 100009999 (times)
+
+Input order: Near sorted
+--------------------------
+Running time (if required): 0.3012 (ms)
+Comparisons (if required): 186682 (times)
+
+-------------------------------------------------------
+
+Algorithm: Insertion Sort
+Input size: 30000
+
+Input order: Random
+--------------------------
+Running time (if required): 703.786 (ms)
+Comparisons (if required): 449567506 (times)
+
+Input order: Sorted
+--------------------------
+Running time (if required): 0.1469 (ms)
+Comparisons (if required): 89998 (times)
+
+Input order: Reverse sorted
+--------------------------
+Running time (if required): 1442.35 (ms)
+Comparisons (if required): 900029999 (times)
+
+Input order: Near sorted
+--------------------------
+Running time (if required): 1.0697 (ms)
+Comparisons (if required): 632586 (times)
+
+--------------------------------------------------------
+
+ALGORITHM MODE
+Algorithm: Insertion Sort
+Input size: 50000
+
+Input order: Random
+--------------------------
+Running time (if required): 1979.76 (ms)
+Comparisons (if required): 1254858493 (times)
+
+Input order: Sorted
+--------------------------
+Running time (if required): 0.2359 (ms)
+Comparisons (if required): 149998 (times)
+
+Input order: Reverse sorted
+--------------------------
+Running time (if required): 3965.39 (ms)
+Comparisons (if required): 2500049999 (times)
+
+Input order: Near sorted
+--------------------------
+Running time (if required): 0.9166 (ms)
+Comparisons (if required): 599550 (times)
+
+--------------------------------------------------------
+
+ALGORITHM MODE
+Algorithm: Insertion Sort
+Input size: 100000
+
+Input order: Random
+--------------------------
+Running time (if required): 8094.08 (ms)
+Comparisons (if required): 4996373906 (times)
+
+Input order: Sorted
+--------------------------
+Running time (if required): 0.4483 (ms)
+Comparisons (if required): 299998 (times)
+
+Input order: Reverse sorted
+--------------------------
+Running time (if required): 16051.3 (ms)
+Comparisons (if required): 10000099999 (times)
+
+Input order: Near sorted
+--------------------------
+Running time (if required): 2.3678 (ms)
+Comparisons (if required): 746502 (times)
+
+---------------------------------------------------------
+
+ALGORITHM MODE
+Algorithm: Insertion Sort
+Input size: 200000
+
+Input order: Random
+--------------------------
+Running time (if required): 32147 (ms)
+Comparisons (if required): 20030973706 (times)
+
+Input order: Sorted
+--------------------------
+Running time (if required): 0.9138 (ms)
+Comparisons (if required): 599998 (times)
+
+Input order: Reverse sorted
+--------------------------
+Running time (if required): 68425.7 (ms)
+Comparisons (if required): 40000199999 (times)
+
+Input order: Near sorted
+--------------------------
+Running time (if required): 3.2609 (ms)
+Comparisons (if required): 1165902 (times)
+
+-----------------------------------------------------------
+
+ALGORITHM MODE
+Algorithm: Insertion Sort
+Input size: 500000
+
+Input order: Random
+--------------------------
+Running time (if required): 224382 (ms)
+Comparisons (if required): 124817813816 (times)
+
+Input order: Sorted
+--------------------------
+Running time (if required): 2.5371 (ms)
+Comparisons (if required): 1499998 (times)
+
+Input order: Reverse sorted
+--------------------------
+Running time (if required): 417666 (ms)
+Comparisons (if required): 250000499999 (times)
+
+Input order: Near sorted
+--------------------------
+Running time (if required): 3.5993 (ms)
+Comparisons (if required): 1853022 (times)

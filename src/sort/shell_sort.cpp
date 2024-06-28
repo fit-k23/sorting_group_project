@@ -4,7 +4,7 @@ Result shellSort(int *a, int n) {
 	Result r;
 	auto start = chrono::high_resolution_clock::now();
 	for (int gap = n / 2; ++r.cmps && gap > 0; gap /= 2) {
-		for (int i = gap; ++r.cmps && i < n; i++) {
+		for (int i = gap; ++r.cmps && i < n; ++i) {
 			int temp = a[i];
 
 			int j;

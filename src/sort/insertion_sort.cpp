@@ -4,7 +4,7 @@ Result insertionSort(int *a, int n) {
 	Result r;
 	auto start = chrono::high_resolution_clock::now();
 	int key, j;
-	for (int i = 1; ++r.cmps && i < n; i++) {
+	for (int i = 1; ++r.cmps && i < n; ++i) {
 		key = a[i];
 		j = i - 1;
 
