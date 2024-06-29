@@ -12,7 +12,7 @@ void Run_mergeSort(Result &r,int *a,int left,int right){
 	// combine the array's parts to merge array in ascending order
 	vector<int> c(right-left+1);
 	int i=left, j=mid+1, index=0;
-	while (++r.cmps && (i<=mid && j<=right)){
+	while ((++r.cmps && i<=mid) && (++r.cmps && j<=right)){
 		if (++r.cmps && a[i]<a[j]){
 			c[index++]=a[i];
 			++i;
