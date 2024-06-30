@@ -14,7 +14,7 @@ Result countingSort(int* a, int n) {
         count[a[i]]++;
     }
     //update the given array into ascending order
-    for (int i = 0, j = 0; ++r.cmps && (i < n && j <= max); j++) {
+    for (int i = 0, j = 0; ((++r.cmps && i < n) && (++r.cmps && j <= max)); j++) {
         while (++r.cmps && count[j] > 0) {
             count[j]--;
             a[i++] = j;
