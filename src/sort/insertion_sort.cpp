@@ -1,5 +1,6 @@
 #include "../utils/utils.h"
 
+/// DOCs: https://www.geeksforgeeks.org/insertion-sort-algorithm/
 Result insertionSort(int *a, int n) {
 	Result r;
 	auto start = chrono::high_resolution_clock::now();

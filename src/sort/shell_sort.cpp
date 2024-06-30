@@ -1,9 +1,13 @@
 #include "../utils/utils.h"
 
+/// DOCs: https://www.geeksforgeeks.org/shellsort/
 Result shellSort(int *a, int n) {
 	Result r;
 	auto start = chrono::high_resolution_clock::now();
+	// start with big gap then divide it by 2 each run
 	for (int gap = n / 2; ++r.cmps && gap > 0; gap /= 2) {
+
+		// sort sub-list using insertion sort
 		for (int i = gap; ++r.cmps && i < n; ++i) {
 			int temp = a[i];
 
