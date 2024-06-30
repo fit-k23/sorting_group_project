@@ -1,14 +1,14 @@
 #include "../utils/utils.h"
 
-Result countingSort(int* a, int n) {
+Result countingSort(int *a, int n) {
     Result r;
     auto start = chrono::high_resolution_clock::now();
     int max = a[0];
 
-    //find the maxium element from the given array
+    //find the maximum element from the given array
     for (int i = 0; ++r.cmps && i < n; i++)
         if (++r.cmps && a[i] > max) max = a[i];
-    //create an array that counts the number of occurences of each element
+    //create an array that counts the number of occurrences of each element
     vector <int> count(max+1);
     for (int i = 0; ++r.cmps && i < n; i++) {
         count[a[i]]++;
