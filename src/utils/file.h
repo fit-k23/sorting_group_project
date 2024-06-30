@@ -1,14 +1,17 @@
 #ifndef SORTING_GROUP_PROJECT_FILE_H
 #define SORTING_GROUP_PROJECT_FILE_H
 
-#include <filesystem>
 #include <fstream>
 
 using namespace std;
 
-// https://stackoverflow.com/a/24750132/24078702
 bool fileExist(const char *fileName) {
-	return filesystem::exists(fileName);
+	ifstream file(fileName);
+	if (!file.is_open()) {
+		return false;
+	}
+	file.close();
+	return true;
 }
 
 int* readFile(const char *fileName, int &n) {
