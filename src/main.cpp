@@ -220,6 +220,7 @@ int main(int argc, char **argv) {
 				t4.join();
 				delete[] c_a4;
 				logOutputInfo(r4, oMode);
+				delete[] a1;
 				return 0;
 			}
 			// command 2
