@@ -5,7 +5,7 @@ Input order: Random
 --------------------------
 Running time (if required): 177.599 (ms)
 Comparisons (if required): 66336525 (times)
-
+r
 Input order: Sorted
 --------------------------
 Running time (if required): 0.0402 (ms)
@@ -18,7 +18,7 @@ Comparisons (if required): 100005001 (times)
 
 Input order: Near sorted
 --------------------------
-Running time (if required): 0.4365 (ms)
+Running time (if required): 0.437 (ms)
 Comparisons (if required): 192789 (times)
 
 -------------------------------------------------
@@ -43,7 +43,7 @@ Comparisons (if required): 900015001 (times)
 
 Input order: Near sorted
 --------------------------
-Running time (if required): 1.1377 (ms)
+Running time (if required): 1.138 (ms)
 Comparisons (if required): 486978 (times)
 
 -------------------------------------------------
@@ -96,30 +96,29 @@ Input order: Near sorted
 Running time (if required): 6.1561 (ms)
 Comparisons (if required): 719450 (times)
 
---------------------------------------------------
-
-Algorithm: Shaker Sort
-Input size: 200000
+-----------------------------------------------
+Input size: 300000
 
 Input order: Random
 --------------------------
-Running time (if required): 113606 (ms)
-Comparisons (if required): 26595284560 (times)
+Running time (if required): 324653.172 (ms)
+Comparisons (if required): 60087505604 (times)
 
 Input order: Sorted
 --------------------------
-Running time (if required): 0.807 (ms)
-Comparisons (if required): 400002 (times)
+Running time (if required): 0.768 (ms)
+Comparisons (if required): 600002 (times)
 
 Input order: Reverse sorted
 --------------------------
-Running time (if required): 123196 (ms)
-Comparisons (if required): 40000100001 (times)
+Running time (if required): 397056.209 (ms)
+Comparisons (if required): 90000150001 (times)
 
 Input order: Near sorted
 --------------------------
-Running time (if required): 2.1007 (ms)
-Comparisons (if required): 817847 (times)
+Running time (if required): 2.749 (ms)
+Comparisons (if required): 1218874 (times)
+
 
 --------------------------------------------------
 
@@ -143,6 +142,6 @@ Comparisons (if required): 250000250001 (times)
 
 Input order: Near sorted
 --------------------------
-Running time (if required): 2.8064 (ms)
+Running time (if required): 2.806 (ms)
 Comparisons (if required): 1447372 (times)
 

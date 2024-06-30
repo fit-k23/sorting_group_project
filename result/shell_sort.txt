@@ -8,7 +8,7 @@ Comparisons (if required): 660667 (times)
 
 Input order: Sorted
 --------------------------
-Running time (if required): 0.6129 (ms)
+Running time (if required): 0.613 (ms)
 Comparisons (if required): 360042 (times)
 
 Input order: Reverse sorted
@@ -18,7 +18,7 @@ Comparisons (if required): 475175 (times)
 
 Input order: Near sorted
 --------------------------
-Running time (if required): 1.0273 (ms)
+Running time (if required): 1.027 (ms)
 Comparisons (if required): 408266 (times)
 
 -------------------------------------------------
@@ -33,7 +33,7 @@ Comparisons (if required): 2221269 (times)
 
 Input order: Sorted
 --------------------------
-Running time (if required): 1.9025 (ms)
+Running time (if required): 1.903 (ms)
 Comparisons (if required): 1170050 (times)
 
 Input order: Reverse sorted
@@ -43,7 +43,7 @@ Comparisons (if required): 1554051 (times)
 
 Input order: Near sorted
 --------------------------
-Running time (if required): 2.3908 (ms)
+Running time (if required): 2.391 (ms)
 Comparisons (if required): 1283432 (times)
 
 ----------------------------------------------------
@@ -58,7 +58,7 @@ Comparisons (if required): 4449169 (times)
 
 Input order: Sorted
 --------------------------
-Running time (if required): 3.6404 (ms)
+Running time (if required): 3.641 (ms)
 Comparisons (if required): 2100049 (times)
 
 Input order: Reverse sorted
@@ -68,7 +68,7 @@ Comparisons (if required): 2844628 (times)
 
 Input order: Near sorted
 --------------------------
-Running time (if required): 3.9652 (ms)
+Running time (if required): 3.965 (ms)
 Comparisons (if required): 2234992 (times)
 
 --------------------------------------------------
@@ -83,7 +83,7 @@ Comparisons (if required): 10000633 (times)
 
 Input order: Sorted
 --------------------------
-Running time (if required): 6.7335 (ms)
+Running time (if required): 6.734 (ms)
 Comparisons (if required): 4500051 (times)
 
 Input order: Reverse sorted
@@ -99,27 +99,27 @@ Comparisons (if required): 4655561 (times)
 --------------------------------------------------
 
 Algorithm: Shell Sort
-Input size: 200000
+Input size: 300000
 
 Input order: Random
 --------------------------
-Running time (if required): 59.2043 (ms)
-Comparisons (if required): 23853565 (times)
+Running time (if required): 98.319 (ms)
+Comparisons (if required): 33676404 (times)
 
 Input order: Sorted
 --------------------------
-Running time (if required): 15.8361 (ms)
-Comparisons (if required): 9600053 (times)
+Running time (if required): 28.639 (ms)
+Comparisons (if required): 15300061 (times)
 
 Input order: Reverse sorted
 --------------------------
-Running time (if required): 24.8919 (ms)
-Comparisons (if required): 12978312 (times)
+Running time (if required): 46.122 (ms)
+Comparisons (if required): 20001852 (times)
 
 Input order: Near sorted
 --------------------------
-Running time (if required): 16.6068 (ms)
-Comparisons (if required): 9761890 (times)
+Running time (if required): 30.158 (ms)
+Comparisons (if required): 15457920 (times)
 
 -------------------------------------------------
 

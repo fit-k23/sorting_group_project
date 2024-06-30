@@ -103,27 +103,27 @@ Comparisons (if required): 746502 (times)
 
 ALGORITHM MODE
 Algorithm: Insertion Sort
-Input size: 200000
+Input size: 300000
 
 Input order: Random
 --------------------------
-Running time (if required): 32147 (ms)
-Comparisons (if required): 20030973706 (times)
+Running time (if required): 87038.191 (ms)
+Comparisons (if required): 44967207701 (times)
 
 Input order: Sorted
 --------------------------
-Running time (if required): 0.9138 (ms)
-Comparisons (if required): 599998 (times)
+Running time (if required): 2.396 (ms)
+Comparisons (if required): 899998 (times)
 
 Input order: Reverse sorted
 --------------------------
-Running time (if required): 68425.7 (ms)
-Comparisons (if required): 40000199999 (times)
+Running time (if required): 156426.796 (ms)
+Comparisons (if required): 90000299999 (times)
 
 Input order: Near sorted
 --------------------------
-Running time (if required): 3.2609 (ms)
-Comparisons (if required): 1165902 (times)
+Running time (if required): 1.976 (ms)
+Comparisons (if required): 1338642 (times)
 
 -----------------------------------------------------------
 
