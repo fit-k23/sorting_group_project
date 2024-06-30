@@ -9,12 +9,6 @@
 
 using namespace std;
 
-//#define COMMAND_TEST
-
-#ifdef COMMAND_TEST
-#include "test/test.cpp"
-#endif
-
 void printHelp() {
 	cout << "SGP is a tool for measuring time and comparisons of sorting algorithms\n\n"
 		 << "Usage: sgp [arguments]\n"
@@ -24,9 +18,6 @@ void printHelp() {
 		 << "       sgp -c [algorithm1] [algorithm2] [input filename]\n"
 		 << "       sgp -c [algorithm1] [algorithm2] [input size] [input order]\n\n"
 		 << "       sgp -l >> List all supported sorting algorithms\n";
-#ifdef COMMAND_TEST
-	cout << "       sgp -t >> Run test\n";
-#endif
 }
 
 int* cloneArray(const int* a, int n) {
@@ -104,23 +95,38 @@ void printAlgoList() {
 	}
 }
 
-void logGenerateDataInfo(int *a, int n, InputOrder order, const char *outputFile = nullptr) {
+void logGenerateDataInfo(InputOrder order) {
 	cout << "Input order: ";
 	switch (order) {
 		case InputOrder::ORDER_RAND:
 			cout << "Random\n";
-			GenerateData(a, n, 0);
 			break;
 		case InputOrder::ORDER_SORTED:
 			cout << "Sorted\n";
-			GenerateData(a, n, 1);
 			break;
 		case InputOrder::ORDER_REV:
 			cout << "Reverse sorted\n";
-			GenerateData(a, n, 2);
 			break;
 		case InputOrder::ORDER_NSORTED:
 			cout << "Near sorted\n";
+			break;
+		default:
+			break;
+	}
+}
+
+void generateDataInfo(int *a, int n, InputOrder order, const char *outputFile = nullptr) {
+	switch (order) {
+		case InputOrder::ORDER_RAND:
+			GenerateData(a, n, 0);
+			break;
+		case InputOrder::ORDER_SORTED:
+			GenerateData(a, n, 1);
+			break;
+		case InputOrder::ORDER_REV:
+			GenerateData(a, n, 2);
+			break;
+		case InputOrder::ORDER_NSORTED:
 			GenerateData(a, n, 3);
 			break;
 		default:
@@ -135,7 +141,8 @@ void logOutputInfo(Result r, OutputMode oMode) {
 	cout << "--------------------------\n";
 	cout << "Running time (if required): ";
 	if (oMode == BOTH || oMode == TIME) {
-		cout << r.time << " (ms)";
+		printf("%.3f (ms)", r.time);
+		//cout << r.time << " (ms)";
 	}
 	cout << '\n';
 	cout << "Comparisons (if required): ";
@@ -178,22 +185,41 @@ int main(int argc, char **argv) {
 			if (argc == 5) { // command 3
 				oMode = getOutputMode(argv[4]);
 				cout << '\n';
-				logGenerateDataInfo(a1, n, ORDER_RAND, "input_1.txt");
-				r = sort(algo, a1, n);
-				logOutputInfo(r, oMode);
+				int *c_a1 = new int[n];
+				int *c_a2 = new int[n];
+				int *c_a3 = new int[n];
+				int *c_a4 = new int[n];
+				Result r1;
+				Result r2;
+				Result r3;
+				Result r4;
+				generateDataInfo(c_a1, n, ORDER_RAND, "input_1.txt");
+				thread t1(refSort, algo, c_a1, n, &r1, nullptr);
+				generateDataInfo(c_a2, n, ORDER_SORTED, "input_2.txt");
+				thread t2(refSort, algo, c_a2, n, &r2, nullptr);
+				generateDataInfo(c_a3, n, ORDER_REV, "input_3.txt");
+				thread t3(refSort, algo, c_a3, n, &r3, nullptr);
+				generateDataInfo(c_a4, n, ORDER_NSORTED, "input_4.txt");
+				thread t4(refSort, algo, c_a4, n, &r4, nullptr);
+				logGenerateDataInfo(ORDER_RAND);
+				t1.join();
+				logOutputInfo(r1, oMode);
 				cout << '\n';
-				logGenerateDataInfo(a1, n, ORDER_SORTED, "input_2.txt");
-				r = sort(algo, a1, n);
-				logOutputInfo(r, oMode);
+				delete[] c_a1;
+				logGenerateDataInfo(ORDER_SORTED);
+				t2.join();
+				delete[] c_a2;
+				logOutputInfo(r2, oMode);
 				cout << '\n';
-				logGenerateDataInfo(a1, n, ORDER_REV, "input_3.txt");
-				r = sort(algo, a1, n);
-				logOutputInfo(r, oMode);
+				logGenerateDataInfo(ORDER_REV);
+				t3.join();
+				delete[] c_a3;
+				logOutputInfo(r3, oMode);
 				cout << '\n';
-				logGenerateDataInfo(a1, n, ORDER_NSORTED, "input_4.txt");
-				r = sort(algo, a1, n);
-				logOutputInfo(r, oMode);
-				delete[] a1;
+				logGenerateDataInfo(ORDER_NSORTED);
+				t4.join();
+				delete[] c_a4;
+				logOutputInfo(r4, oMode);
 				return 0;
 			}
 			// command 2
@@ -203,7 +229,8 @@ int main(int argc, char **argv) {
 				printHelp();
 				return 0;
 			}
-			logGenerateDataInfo(a1, n, iOrder, "input.txt");
+			logGenerateDataInfo(iOrder);
+			generateDataInfo(a1, n, iOrder, "input.txt");
 			oMode = getOutputMode(argv[5]);
 		} else if (fileExist(argv[3])) { // command 1
 			a1 = readFile(argv[3], n);
@@ -211,7 +238,7 @@ int main(int argc, char **argv) {
 			cout << "Input size: " << n << "\n";
 			oMode = getOutputMode(argv[4]);
 		} else {
-			printHelp();
+			cout << "Cannot find file with the name: " << argv[3] << "\n";
 			return 0;
 		}
 		r = sort(algo, a1, n, "output.txt");
@@ -225,8 +252,10 @@ int main(int argc, char **argv) {
 		SortingAlgo algo2 = getSortingAlgoFromText(argv[3]);
 		Result r1;
 		Result r2;
-		if (algo1 == UNKNOWN_SORT || algo2 == UNKNOWN_SORT) {
+		if (algo1 == UNKNOWN_SORT || algo2 == UNKNOWN_SORT || argc < 5) {
 			printHelp();
+			delete[] a1;
+			return 0;
 		}
 		cout << "COMPARE MODE\n";
 		printf("Algorithm: %21s | %-21s\n", algoName[algo1].c_str(), algoName[algo2].c_str());
@@ -246,8 +275,9 @@ int main(int argc, char **argv) {
 			cout << "Input file: " << argv[4] << "\n";
 			cout << "Input size: " << n << "\n";
 			a1 = readFile(argv[4], n);
-		} else { // send help
-			printHelp();
+		} else {
+			cout << "Cannot find file with the name: " << argv[4] << "\n";
+			delete[] a1;
 			return 0;
 		}
 
@@ -262,10 +292,6 @@ int main(int argc, char **argv) {
 		printf("Comparisons:  %18lld | %-18lld  (times)\n", r1.cmps, r2.cmps);
 	} else if (strcmp(argv[1], "-l") == 0) { // extra command for display all algorithms
 		printAlgoList();
-#ifdef COMMAND_TEST
-	} else if (strcmp(argv[1], "-l") == 0) {
-
-#endif
 	} else {
 		printHelp();
 	}
